@@ -1,13 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unakkul Naan</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+/* Background Image */
+.bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:blur(8px);
+    transform:scale(1.1);
+}
+
+/* Dark Layer */
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+
+/* Loading Text */
+.loading{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:100px;
+    font-weight:900;
+    color:white;
+    text-shadow:
+        0 0 10px white,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff,
+        0 0 80px #ff00ff;
+    animation:glow 1.5s infinite alternate;
+    z-index:10;
+}
+
+@keyframes glow{
+    from{
+        transform:translate(-50%,-50%) scale(1);
+    }
+    to{
+        transform:translate(-50%,-50%) scale(1.12);
+    }
+}
+</style>
 </head>
+
 <body>
-    <h2>LOADING</h2>
-    <img src="maintanance.jpg" alt="">
+
+<img src="love.jpg" class="bg">
+
+
+<div class="overlay"></div>
+
+<h1 class="loading">LOADING...</h1>
+
+<script>
     
+    
+const loading = document.querySelector(".loading");
+let count = 0;
+
+setInterval(() => {
+    count = (count + 1) % 4;
+    loading.textContent = "LOADING" + ".".repeat(count);
+}, 500);
+
+</script>
+
+<style>
+.bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:blur(10px);
+    transform:scale(1.1);
+}
+</style>
+
 </body>
 </html>
