@@ -1,108 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    width:100%;
-    height:100vh;
-    overflow:hidden;
-}
-
-/* Background Image */
-.bg{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:blur(8px);
-    transform:scale(1.1);
-}
-
-/* Dark Layer */
-.overlay{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.4);
-}
-
-/* Loading Text */
-.loading{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-size:100px;
-    font-weight:900;
-    color:white;
-    text-shadow:
-        0 0 10px white,
-        0 0 20px #15ff00,
-        0 0 40px #15ff00,
-        0 0 80px #15ff00;
-    animation:glow 1.5s infinite alternate;
-    z-index:10;
-}
-
-@keyframes glow{
-    from{
-        transform:translate(-50%,-50%) scale(1);
-    }
-    to{
-        transform:translate(-50%,-50%) scale(1.12);
-    }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<img src="love.jpg" class="bg">
+    <div id="bg"></div>
 
+    <div id="homePage">
 
-<div class="overlay"></div>
+        <h1 class="title">Memories❤️</h1>
 
-<h1 class="loading">LOADING...</h1>
+        <div class="cards">
 
-<script>
-    
-    
-const loading = document.querySelector(".loading");
-let count = 0;
+            <div class="glass-card" onclick="openImagePage()">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/069/673/871/small/camera-button-and-icon-elements-glassmorphic-transparent-and-glossy-style-for-ui-ux-application-design-png.png" alt="Images">
+                <h2>Images</h2>
+            </div>
 
-setInterval(() => {
-    count = (count + 1) % 4;
-    loading.textContent = "LOADING" + ".".repeat(count);
-}, 500);
+            <div class="glass-card" onclick="openVideoPage()">
+                <img src="video-2.png" alt="Videos">
+                <h2>Videos</h2>
+            </div>
 
-</script>
+            <div class="glass-card" onclick="openPersonalPage()">
+                <img src="https://png.pngtree.com/png-vector/20240224/ourmid/pngtree-glossy-stylized-glass-icon-of-lock-security-padlock-locked-ai-genrated-png-image_11874292.png" alt="Personal">
+                <h2>Personal</h2>
+            </div>
 
-<style>
-.bg{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    filter:blur(10px);
-    transform:scale(1.1);
-}
-</style>
+        </div>
+
+        <div class="controls">
+
+            <button class="uploadBtn" onclick="uploadBackground()">
+                Upload
+            </button>
+
+            <button class="applyBtn" onclick="applyBackground()">
+                Apply
+            </button>
+
+            <input
+                type="file"
+                id="bgInput"
+                accept="image/*"
+                hidden>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
