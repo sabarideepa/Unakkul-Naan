@@ -1,20 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
 
-<video id="video" autoplay playsinline></video>
+    <div id="bg"></div>
 
-<script>
-navigator.mediaDevices.getUserMedia({
-    video: true
-})
-.then(stream => {
-    document.getElementById("video").srcObject = stream;
-})
-.catch(err => {
-    alert("Camera permission denied");
-});
-</script>
+    <div id="homePage">
+
+        <h1 class="title">Memories❤️</h1>
+
+        <div class="cards">
+
+            <div class="glass-card" onclick="openImagePage()">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/069/673/871/small/camera-button-and-icon-elements-glassmorphic-transparent-and-glossy-style-for-ui-ux-application-design-png.png" alt="Images">
+                <h2>Images</h2>
+            </div>
+
+            <div class="glass-card" onclick="openVideoPage()">
+                <img src="video-2.png" alt="Videos">
+                <h2>Videos</h2>
+            </div>
+
+            <div class="glass-card" onclick="openPersonalPage()">
+                <img src="https://png.pngtree.com/png-vector/20240224/ourmid/pngtree-glossy-stylized-glass-icon-of-lock-security-padlock-locked-ai-genrated-png-image_11874292.png" alt="Personal">
+                <h2>Personal</h2>
+            </div>
+
+        </div>
+
+        <div class="controls">
+
+            <button class="uploadBtn" onclick="uploadBackground()">
+                Upload
+            </button>
+
+            <button class="applyBtn" onclick="applyBackground()">
+                Apply
+            </button>
+
+            <input
+                type="file"
+                id="bgInput"
+                accept="image/*"
+                hidden>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
